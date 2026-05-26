@@ -1,69 +1,48 @@
-# ============================================
-# VIDEOTECA DIGITAL - SEGÚN REQUERIMIENTOS
-# ============================================
+Videoteca Digital
 
-# -------------------------------
-# ENTRADA (MATRIZ DE DATOS)
-# -------------------------------
-# [Título, Año, Calificación, Género]
+Este proyecto es una aplicación sencilla en Python que permite analizar una videoteca (lista de películas) y contar cuántos títulos cumplen con ciertos criterios definidos por el usuario.
 
-videoteca = [
-    ["Avengers: Endgame", 2019, 9.0, "Acción"],
-    ["Inception", 2010, 8.8, "Ciencia Ficción"],
-    ["Titanic", 1997, 7.8, "Romance"],
-    ["Parasite", 2019, 8.6, "Drama"],
-    ["Joker", 2019, 8.5, "Drama"],
-    ["Frozen II", 2019, 7.0, "Animación"],
-    ["The Batman", 2022, 8.2, "Acción"]
-]
+Descripción
 
-# -------------------------------
-# MÓDULO (FUNCIÓN)
-# -------------------------------
-def contar_titulos(matriz, umbral_calificacion, anio_limite):
-    """
-    Procesa la matriz y cuenta los títulos que cumplen:
-    - Calificación >= umbral
-    - Año >= año límite
-    """
-    
-    contador = 0  # Variable de salida interna
-    
-    # -------------------------------
-    # PROCESAMIENTO
-    # -------------------------------
-    for titulo in matriz:
-        nombre = titulo[0]
-        anio = titulo[1]
-        calificacion = titulo[2]
-        genero = titulo[3]
-        
-        # -------------------------------
-        # LÓGICA DE NEGOCIO
-        # -------------------------------
-        if calificacion >= umbral_calificacion and anio >= anio_limite:
-            contador += 1
-            print(f"✔ Cumple: {nombre} | Año: {anio} | Calificación: {calificacion}")
-    
-    return contador
+El programa trabaja con una matriz de datos que contiene información de películas, incluyendo:
 
+Título
+Año de estreno
+Calificación
+Género
 
-# -------------------------------
-# ENTRADA DE CRITERIOS
-# -------------------------------
-umbral = float(input("Ingrese la calificación mínima (ej: 8): "))
-anio_minimo = int(input("Ingrese el año mínimo (ej: 2018): "))
+A partir de estos datos, el usuario puede ingresar:
 
+Una calificación mínima
+Un año mínimo
 
-# -------------------------------
-# LLAMADO AL MÓDULO
-# -------------------------------
-resultado = contar_titulos(videoteca, umbral, anio_minimo)
+El sistema filtrará las películas que cumplan ambas condiciones y mostrará:
 
+✔ Las películas que cumplen
+📊 El total de resultados
 
-# -------------------------------
-# SALIDA
-# -------------------------------
-print("\n===================================")
-print(f"Total de títulos que cumplen: {resultado}")
-print("===================================")
+⚙️ Funcionamiento
+
+El programa utiliza una función llamada:
+
+contar_titulos(matriz, umbral_calificacion, anio_limite)
+🔍 Lógica:
+Recorre la matriz de películas
+Evalúa cada registro
+Verifica si:
+calificación >= umbral
+año >= año límite
+Cuenta y muestra los resultados
+🧪 Ejemplo de uso
+Entrada:
+Ingrese la calificación mínima (ej: 8): 8
+Ingrese el año mínimo (ej: 2018): 2018
+Salida:
+✔ Cumple: Avengers: Endgame | Año: 2019 | Calificación: 9.0
+✔ Cumple: Parasite | Año: 2019 | Calificación: 8.6
+✔ Cumple: Joker | Año: 2019 | Calificación: 8.5
+✔ Cumple: The Batman | Año: 2022 | Calificación: 8.2
+
+===================================
+Total de títulos que cumplen: 4
+===================================
